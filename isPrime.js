@@ -26,7 +26,6 @@ function isPrime(number) {
 function main() {
   const input = process.argv[2];
 
-  //   console.log({input });
   if (!Number.isFinite(Number(input))) {
     console.error(`Error: "${input}" is not finite number`);
     return 1;
