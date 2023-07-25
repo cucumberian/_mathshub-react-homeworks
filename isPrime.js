@@ -1,5 +1,5 @@
 function isPrime(number) {
-  const limit = Math.sqrt(number);
+  const limit = Math.sqrt(number) + 1;
 
   let answer = true;
 
