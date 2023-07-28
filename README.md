@@ -1,3 +1,1 @@
-# mathshub-react-homeworks
-
-Здесь будут домашние задания для курса React 2023 :)
+# Задание 2 `my-profile`
