@@ -1,1 +1,3 @@
-# Hello React App
+# My-profile react sample app
+
+Тест использования реакт компонент на примере небольшого приложения.

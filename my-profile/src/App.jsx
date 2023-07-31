@@ -1,12 +1,9 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Profile from "./components/Profile";
 
 function App() {
-  return (
-    <div>
-      Hello React!
-    </div>
-  );
+  return <Profile />;
 }
 
 export default App;
