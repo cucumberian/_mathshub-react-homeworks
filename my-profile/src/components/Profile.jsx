@@ -3,6 +3,7 @@ import ProfilePicture from "./ProfilePicture";
 import ProfileName from "./ProfileName";
 import ProfileBio from "./ProfileBio";
 import ProfileHobbies from "./ProfileHobbies";
+import ProfileCitation from "./ProfileCitation";
 
 import user from "./user";
 
@@ -14,6 +15,10 @@ function Profile() {
       <ProfileName name={user.name} />
       <ProfileBio text={user.bio} />
       <ProfileHobbies hobbiesList={user.hobbies} />
+      <ProfileCitation
+        text={user.citation.text}
+        author={user.citation.author}
+      />
     </>
   );
 }

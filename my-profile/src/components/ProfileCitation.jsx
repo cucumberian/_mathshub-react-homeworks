@@ -1,7 +1,16 @@
 import React from "react";
 
-function ProfileCitation() {
-  return <cite>I want to beleave</cite>;
+function ProfileCitation({ text, author }) {
+  return (
+    <>
+      <q>
+        <p>{text}</p>
+      </q>
+      <figcaption>
+        <cite>{author}</cite>
+      </figcaption>
+    </>
+  );
 }
 
 export default ProfileCitation;
