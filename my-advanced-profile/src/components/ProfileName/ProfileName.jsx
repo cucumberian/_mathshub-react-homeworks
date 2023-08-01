@@ -4,7 +4,7 @@ function ProfileName(props) {
   const { name } = props;
   return (
     <p>
-      Имя: <strong>{name}</strong>
+      <strong>Имя:</strong> {name}
     </p>
   );
 }

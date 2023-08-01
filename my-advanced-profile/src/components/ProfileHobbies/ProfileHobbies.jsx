@@ -3,7 +3,9 @@ import React from "react";
 function ProfileHobbies({ hobbiesList }) {
   return (
     <div>
-      <p>Список хобби:</p>
+      <p>
+        <strong>Хобби:</strong>
+      </p>
 
       <ul>
         {hobbiesList.map((hobbie) => (
