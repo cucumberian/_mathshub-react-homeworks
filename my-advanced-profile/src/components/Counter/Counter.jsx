@@ -1,37 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Counter.css";
 
-function Counter({ counterInitialValue }) {
-  const [counterValue, setCounter] = useState(counterInitialValue);
-  const [className, setClass] = useState("counter");
-
-  function handleClick(e) {
-    let increase = 0;
-    setClass("counter");
-    if (e.target.dataset.role === "increase") {
-      increase = +1;
-    } else if (e.target.dataset.role === "decrease") {
-      if (counterValue <= 0) {
-        setClass("counter__wrong");
-        return;
-      }
-      increase = -1;
-    } else {
-      return;
-    }
-    console.log(`e.target.dataset =`, e.target.dataset);
-    console.log(increase);
-    setCounter(counterValue + increase);
-  }
-
+function Counter({ counterValue, clickMinus, clickPlus }) {
+  console.log("counterValue = ", counterValue);
   return (
     <>
-      <p className={className}>Побеждено сегодня монстров: {counterValue}</p>
+      <p className={counterValue <= 0 ? "counter counter__wrong" : "counter"}>
+        Побеждено сегодня монстров: {counterValue}
+      </p>
       <div>
-        <button data-role="decrease" type="submit" onClick={handleClick}>
+        <button data-role="decrease" type="submit" onClick={clickMinus}>
           Уменьшить
         </button>
-        <button data-role="increase" type="submit" onClick={handleClick}>
+        <button data-role="increase" type="submit" onClick={clickPlus}>
           Увеличить
         </button>
       </div>

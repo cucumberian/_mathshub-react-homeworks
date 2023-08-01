@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ProfilePicture from "./ProfilePicture/ProfilePicture";
 import ProfileName from "./ProfileName/ProfileName";
 import ProfileBio from "./ProfileBio/ProfileBio";
@@ -8,6 +8,18 @@ import Counter from "./Counter/Counter";
 import "./Profile.css";
 
 function Profile({ userData }) {
+  const [monsterCounter, setMonsterCounter] = useState(
+    userData.todayMonsterCount
+  );
+
+  function clickMinus() {
+    setMonsterCounter(monsterCounter - 1);
+  }
+
+  function clickPlus() {
+    setMonsterCounter(monsterCounter + 1);
+  }
+
   return (
     <div className="profile">
       <ProfilePicture url={userData.avatar_url} />
@@ -18,7 +30,12 @@ function Profile({ userData }) {
         text={userData.citation.text}
         author={userData.citation.author}
       />
-      <Counter counterInitialValue={userData.todayMonsterCount} />
+
+      <Counter
+        counterValue={monsterCounter}
+        clickMinus={clickMinus}
+        clickPlus={clickPlus}
+      />
     </div>
   );
 }
