@@ -1,8 +1,8 @@
 import React from "react";
 
-function ProfileHobbies({ hobbiesList }) {
+function ProfileHobbies({ hobbiesList, commonClass }) {
   return (
-    <div>
+    <div className={commonClass}>
       <p>
         <strong>Хобби:</strong>
       </p>

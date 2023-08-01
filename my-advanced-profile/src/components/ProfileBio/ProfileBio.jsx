@@ -1,13 +1,11 @@
 import React from "react";
 
-function ProfileBio({ text }) {
+function ProfileBio({ text, commonClass }) {
   return (
-    <div>
-      <p>
-        <strong>Краткая биография: </strong>
-        {text}
-      </p>
-    </div>
+    <p className={commonClass}>
+      <strong>Краткая биография: </strong>
+      {text}
+    </p>
   );
 }
 

@@ -5,7 +5,7 @@ import Profile from "./components/Profile";
 function App() {
   const userData = {
     avatar_url:
-      "https://i.pinimg.com/originals/2a/b5/f3/2ab5f30cf2fc1cd7c5bc2c1e02dd608b.png",
+      "https://pm1.aminoapps.com/6921/d5a8b1ee01447a49a198dcb5d507a25c1e7396b5r1-906-868v2_uhq.jpg",
     name: "Сайтама",
     bio: "Работал в супермаркете, потом начал тренироваться каждый день и вступил в ассоциацию супергероев. Очень сильный.",
     citation: {
@@ -21,8 +21,8 @@ function App() {
   };
 
   return (
-    <div className=".App">
-      <Profile userData={userData} />
+    <div className="App">
+      <Profile userData={userData} commonClass="width_100" />
     </div>
   );
 }

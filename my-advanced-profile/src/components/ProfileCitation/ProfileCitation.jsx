@@ -1,8 +1,9 @@
 import React from "react";
+import "./ProfileCitation.css";
 
-function ProfileCitation({ text, author }) {
+function ProfileCitation({ text, author, commonClass }) {
   return (
-    <div>
+    <div className={`${commonClass} profileCitation`}>
       <p>
         <strong>Цитата: </strong>
       </p>

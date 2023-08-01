@@ -1,9 +1,8 @@
 import React from "react";
 
-function ProfileName(props) {
-  const { name } = props;
+function ProfileName({ name, commonClass }) {
   return (
-    <p>
+    <p className={commonClass}>
       <strong>Имя:</strong> {name}
     </p>
   );
