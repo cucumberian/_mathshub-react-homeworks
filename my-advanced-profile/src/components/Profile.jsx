@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import ProfilePicture from "./ProfilePicture/ProfilePicture";
 import ProfileName from "./ProfileName/ProfileName";
 import ProfileBio from "./ProfileBio/ProfileBio";
@@ -20,6 +20,16 @@ function Profile({ userData }) {
     setMonsterCounter(monsterCounter + 1);
   }
 
+  const ProfileElement = useRef(null);
+
+  const Divv = (
+    <div ref={ProfileElement} className="divClass1 divClass2">
+      text sample
+    </div>
+  );
+  console.log(`divv = `, Divv);
+  console.log("ProfileElement = ", ProfileElement);
+
   return (
     <div className="profile">
       <ProfilePicture url={userData.avatar_url} />
@@ -30,12 +40,12 @@ function Profile({ userData }) {
         text={userData.citation.text}
         author={userData.citation.author}
       />
-
       <Counter
         counterValue={monsterCounter}
         clickMinus={clickMinus}
         clickPlus={clickPlus}
       />
+      {Divv}
     </div>
   );
 }
