@@ -15,7 +15,7 @@ function App() {
     hobbies: [
       { id: 0, name: "Видеоигры" },
       { id: 1, name: "Поход по скидкам в магазин" },
-      { id: 2, name: "Экономия" },
+      { id: 2, name: "Тренировки" },
     ],
     todayMonsterCount: Math.floor(Math.random() * 10 + 1),
   };
