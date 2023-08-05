@@ -4,17 +4,17 @@ import SongListFilter from "../SongListFilter/SongListFilter";
 
 function SongListSmart({ songList }) {
   console.log("SongListSmart:", songList);
-  const [filteredList, setFilteredList] = useState(songList);
+  // const [filteredList, setFilteredList] = useState(songList);?
+  // Так не работает, при измененении songList сверху не пересчитывается filterdList
+  const [genreFilterName, setGenreFilterName] = useState("");
 
-  const [isFilter, setIsFilter] = useState(false);
+  const filteredList = songList.filter((song) =>
+    genreFilterName === "" ? true : song.genre === genreFilterName
+  );
+
   const getFilterGenre = (genreName) => {
-    if (genreName === "") {
-      setIsFilter(false);
-    } else {
-      setIsFilter(true);
-    }
+    setGenreFilterName(genreName);
     console.log("filter by genre", genreName);
-    setFilteredList(songList.filter((song) => song.genre === genreName));
   };
 
   return (
@@ -25,11 +25,9 @@ function SongListSmart({ songList }) {
         )}
         getFilterGenre={getFilterGenre}
       />
-      {isFilter ? (
-        <SongList songList={filteredList} />
-      ) : (
-        <SongList songList={songList} />
-      )}
+
+      <SongList songList={filteredList} />
+
       {/* <DeleteSongButton /> */}
     </>
   );
