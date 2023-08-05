@@ -1,0 +1,7 @@
+.song-item {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 4fr 4fr 1fr;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
