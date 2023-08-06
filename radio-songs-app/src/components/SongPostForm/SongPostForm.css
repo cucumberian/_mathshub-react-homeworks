@@ -6,14 +6,14 @@
     margin-bottom: 20px;
 }
 
-.song-post-form input,
-.song-post-form select {
+.song-post-form input {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
     flex-grow: 1;
     /* Make the input fields take up the available space */
 }
+
 
 .song-post-form button {
     background-color: #007bff;

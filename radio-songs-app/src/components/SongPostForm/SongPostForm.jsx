@@ -2,13 +2,13 @@ import React from "react";
 import SelectGenre from "../SelectGenre/SelectGenre";
 import "./SongPostForm.css";
 
-function SongPostForm({ availableGenres, postSongHandler }) {
+function SongPostForm({ availableGenres, postSong }) {
   function formSubmit(e) {
     e.preventDefault();
     // e.stopPropagation();
     const formData = new FormData(e.target);
     const songData = Object.fromEntries(formData.entries());
-    postSongHandler(songData);
+    postSong(songData);
   }
   return (
     <form className="song-post-form" onSubmit={formSubmit}>

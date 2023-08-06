@@ -15,13 +15,22 @@ function Radio({ initSongs, availableGenres }) {
     });
   };
 
+  const deleteSongByIdHandler = (songId) => {
+    setSongList((prevSongList) =>
+      prevSongList.filter((song) => song.id !== songId)
+    );
+  };
+
   return (
     <div className="radio-container">
       <SongPostForm
         availableGenres={availableGenres}
-        postSongHandler={postSongHandler}
+        postSong={postSongHandler}
       />
-      <SongListSmart songList={songList} />
+      <SongListSmart
+        songList={songList}
+        deleteSongById={deleteSongByIdHandler}
+      />
     </div>
   );
 }

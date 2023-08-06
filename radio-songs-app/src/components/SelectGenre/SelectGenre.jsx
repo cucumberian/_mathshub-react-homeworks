@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./SelectGenre.css";
 
 function SelectGenre({
   availableGenres,
@@ -9,6 +10,7 @@ function SelectGenre({
   return (
     <select
       name="genre"
+      className="select-genre"
       onChange={(e) => {
         genreHandler(e.target.value);
         setValue(e.target.value);
@@ -16,7 +18,7 @@ function SelectGenre({
       value={value}
     >
       <option key="2" value="">
-        {dummyName}
+        -- {dummyName} --
       </option>
       {availableGenres.map((genre) => (
         <option key={Math.random().toString()} value={genre}>
