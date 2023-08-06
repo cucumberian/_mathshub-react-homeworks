@@ -5,6 +5,7 @@ function SelectGenre({
   availableGenres,
   genreHandler,
   dummyName = "Выберите жанр",
+  isRequired = false,
 }) {
   const [value, setValue] = useState("");
   return (
@@ -16,6 +17,7 @@ function SelectGenre({
         setValue(e.target.value);
       }}
       value={value}
+      required={isRequired}
     >
       <option key="2" value="">
         -- {dummyName} --

@@ -8,7 +8,6 @@ function Radio({ initSongs, availableGenres }) {
   const [lastId, setLastId] = useState(initSongs.at(-1).id + 1);
 
   const postSongHandler = (songData) => {
-    console.log("postSongHandler songData=", songData);
     setLastId((prevValue) => prevValue + 1);
     setSongList((prevSongList) => {
       return [{ ...songData, id: lastId }, ...prevSongList];

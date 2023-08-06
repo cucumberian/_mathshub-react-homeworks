@@ -8,6 +8,7 @@ function SongListFilter({ availableGenres, getFilterGenre }) {
         availableGenres={availableGenres}
         genreHandler={getFilterGenre}
         dummyName="Фильтровать по жанру"
+        isRequired={false}
       />
     </div>
   );
