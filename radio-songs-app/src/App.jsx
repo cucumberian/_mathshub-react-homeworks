@@ -1,5 +1,6 @@
 import React from "react";
 import Radio from "./components/Radio";
+import Player from "./components/Player/Player";
 
 import "./App.css";
 import RadioHeader from "./components/RadioHeader/RadioHeader";
@@ -52,11 +53,25 @@ const DUMMY_GENRE_LIST = [
   "Классика",
 ];
 
+const DUMMY_FILES = [
+  {
+    filename: "Shelf_Lives_-_Bite_(Venjent_Remix)",
+    src: "/music/Shelf_Lives_-_Bite_(Venjent_Remix).mp3",
+    id: 1,
+  },
+  {
+    filename: "Venjent_x_Biometrix_-_Negroani",
+    src: "/music/Venjent_x_Biometrix_-_Negroani.mp3",
+    id: 2,
+  },
+];
+
 function App() {
   return (
     <div className="App">
       <RadioHeader />
       <Radio initSongs={DUMMY_SONG_LIST} availableGenres={DUMMY_GENRE_LIST} />
+      <Player initFiles={[]} />
     </div>
   );
 }
