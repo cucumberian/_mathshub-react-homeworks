@@ -1,0 +1,12 @@
+.song-item {
+    border: 1px solid gray;
+    padding: 1rem;
+}
+
+.song-item:hover {
+    background-color: hsla(0, 0%, 0%, 0.4);
+    /* border: 1px solid black; */
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
