@@ -1,5 +1,8 @@
 import React from "react";
+
 import logo from "./assets/investment-calculator-logo.png";
+import Form from "./components/Form/Form";
+import Header from "./components/Header/Header";
 
 function App() {
   const calculateHandler = (userInput) => {
@@ -27,49 +30,15 @@ function App() {
     // результаты yearlyData надо отобразить в таблице
   };
 
+  const onAddDataHandler = (data) => {
+    console.log(data);
+  };
+
   return (
     <div>
-      <header className="header">
-        <img src={logo} alt="логотип" />
-        <h1>Калькулятор Инвестиций</h1>
-      </header>
+      <Header logoSrc={logo}>Калькуятор Инвестиций</Header>
 
-      <form className="form">
-        <div className="input-group">
-          <p>
-            <label htmlFor="current-savings">Ваши текущие накопления ($)</label>
-            <input type="number" id="current-savings" />
-          </p>
-          <p>
-            <label htmlFor="yearly-contribution">
-              Сколько отложите за год ($)
-            </label>
-            <input type="number" id="yearly-contribution" />
-          </p>
-        </div>
-        <div className="input-group">
-          <p>
-            <label htmlFor="expected-return">
-              Ожидаемый Процент (%, в год)
-            </label>
-            <input type="number" id="expected-return" />
-          </p>
-          <p>
-            <label htmlFor="duration">
-              Продолжительность Инвестирования (лет)
-            </label>
-            <input type="number" id="duration" />
-          </p>
-        </div>
-        <p className="actions">
-          <button type="reset" className="buttonAlt">
-            Сбросить
-          </button>
-          <button type="submit" className="button">
-            Рассчитать
-          </button>
-        </p>
-      </form>
+      <Form onAddData={onAddDataHandler} />
 
       {/* Задача: Показать таблицу ниже условно (только после доступности результатов) */}
       {/* Показать текст-запаску, если данных нет */}
