@@ -4,54 +4,73 @@ import PLabelInput from "../PLabelInput/PLabelInput";
 
 function Form({ onAddData }) {
   const savingsRef = useRef();
-  const contribution = useRef();
+  const contributionRef = useRef();
   const returnRef = useRef();
   const durationRef = useRef();
 
-  const onSubmit = (e) => {
+  const takeCreditHandler = (e) => {
+    e.preventDefault();
+    savingsRef.current.value = 100;
+    contributionRef.current.value = 0;
+    returnRef.current.value = 10;
+    durationRef.current.value = 3;
+  };
+
+  const onResetHandler = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log("onSubmit");
-    const savingsValue = savingsRef.value;
-    const contributionValue = contribution.value;
-    const returnValue = returnRef.value;
-    const durationValue = durationRef.value;
+    savingsRef.current.value = "";
+    contributionRef.current.value = "";
+    returnRef.current.value = "";
+    durationRef.current.value = "";
+  };
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const savingsValue = savingsRef.current.value;
+    const contributionValue = contributionRef.current.value;
+    const returnValue = returnRef.current.value;
+    const durationValue = durationRef.current.value;
 
     const data = {
-      savings: savingsValue,
-      contribute: contributionValue,
-      return: returnValue,
+      "current-savings": savingsValue,
+      "yearly-contribution": contributionValue,
+      "expected-return": returnValue,
       duration: durationValue,
     };
 
     onAddData(data);
-
-    e.target.reset();
   };
 
   return (
-    <form className="form" onSubmit={onSubmit}>
+    <form className="form" action="" onSubmit={onSubmitHandler}>
       <div className="input-group">
-        <PLabelInput id="current-savings">
+        <PLabelInput inputRef={savingsRef}>
           Ваши текущие накопления ($)
         </PLabelInput>
 
-        <PLabelInput id="yearly-contribution">
+        <PLabelInput inputRef={contributionRef}>
           Сколько отложите за год ($)
         </PLabelInput>
       </div>
+
       <div className="input-group">
-        <PLabelInput id="expected_return">
+        <PLabelInput inputRef={returnRef}>
           Ожидаемый Процент (%, в год)
         </PLabelInput>
 
-        <PLabelInput id="duration">
+        <PLabelInput inputRef={durationRef}>
           Продолжительность Инвестирования (лет)
         </PLabelInput>
       </div>
       <div className="actions">
-        <Button type="reset" className="buttonAlt">
+        <Button type="reset" className="buttonAlt" onClick={onResetHandler}>
           Сбросить
+        </Button>
+        <Button type="button" className="buttonAlt" onClick={takeCreditHandler}>
+          Взять кредит
         </Button>
         <Button type="submit" className="button">
           Рассчитать
