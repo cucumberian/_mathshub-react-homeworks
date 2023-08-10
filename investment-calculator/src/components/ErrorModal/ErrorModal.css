@@ -1,0 +1,23 @@
+.error-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.error-modal {
+    min-width: 20rem;
+}
+
+.error-header {
+    text-align: center;
+}
+
+.error-message {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 0.85rem;
+    color: #a1d1eb;
+    text-align: center;
+    margin-bottom: 1rem;
+}
