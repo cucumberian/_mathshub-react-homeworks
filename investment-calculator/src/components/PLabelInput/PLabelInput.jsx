@@ -12,7 +12,12 @@ function PLabelInput(props) {
   return (
     <p>
       <label htmlFor={cuid}>{props.children}</label>
-      <input type="number" id={cuid} ref={props.inputRef} />
+      <input
+        type="number"
+        id={cuid}
+        ref={props.inputRef}
+        step={props.inputStep || 1}
+      />
     </p>
   );
 }
