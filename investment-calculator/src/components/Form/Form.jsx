@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import Button from "../../UI/Button";
 import PLabelInput from "../PLabelInput/PLabelInput";
+import "./Form.css";
 
 function Form({ onAddData }) {
   const savingsRef = useRef();

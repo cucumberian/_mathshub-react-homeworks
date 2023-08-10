@@ -1,7 +1,7 @@
 import React from "react";
+import "./Table.css";
 
 function YearlyTable({ tableData }) {
-  console.log("Table got tableData:", tableData);
   const now = new Date();
   const currentYear = now.getFullYear();
 
