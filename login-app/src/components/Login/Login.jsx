@@ -1,29 +1,29 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import Card from '../UI/Card/Card';
-import './Login.css';
-import Button from '../UI/Button/Button';
+import Card from "../UI/Card/Card";
+import "./Login.css";
+import Button from "../UI/Button/Button";
 
 function Login({ onLogin }) {
-  const [enteredEmail, setEnteredEmail] = useState('');
+  const [enteredEmail, setEnteredEmail] = useState("");
   const [emailIsValid, setEmailIsValid] = useState();
-  const [enteredPassword, setEnteredPassword] = useState('');
+  const [enteredPassword, setEnteredPassword] = useState("");
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  useEffect(() => console.log('useEFFECT работает!'));
+  useEffect(() => console.log("useEFFECT работает!"));
 
   useEffect(() => {
     const timerId = setTimeout(() => {
-      console.log('Проверяем форму!');
+      console.log("Проверяем форму!");
       setFormIsValid(
-        enteredEmail.includes('@') && enteredPassword.trim().length > 6
+        enteredEmail.includes("@") && enteredPassword.trim().length > 6
       );
     }, 500);
 
     return () => {
-      console.log('Чистим таймер!');
+      console.log("Чистим таймер!");
       clearTimeout(timerId);
     };
   }, [enteredEmail, enteredPassword]);
@@ -45,7 +45,7 @@ function Login({ onLogin }) {
   };
 
   const validateEmailHandler = () => {
-    setEmailIsValid(enteredEmail.includes('@'));
+    setEmailIsValid(enteredEmail.includes("@"));
   };
 
   const validatePasswordHandler = () => {
@@ -58,32 +58,32 @@ function Login({ onLogin }) {
   };
 
   return (
-    <Card className='login'>
+    <Card className="login">
       <form onSubmit={submitHandler}>
-        <div className={`control ${emailIsValid === false ? 'invalid' : ''}`}>
-          <label htmlFor='email'>E-Mail</label>
+        <div className={`control ${emailIsValid === false ? "invalid" : ""}`}>
+          <label htmlFor="email">E-Mail</label>
           <input
-            type='email'
-            id='email'
+            type="email"
+            id="email"
             value={enteredEmail}
             onChange={emailChangeHandler}
             onBlur={validateEmailHandler}
           />
         </div>
         <div
-          className={`control ${passwordIsValid === false ? 'invalid' : ''}`}
+          className={`control ${passwordIsValid === false ? "invalid" : ""}`}
         >
-          <label htmlFor='password'>Password</label>
+          <label htmlFor="password">Password</label>
           <input
-            type='password'
-            id='password'
+            type="password"
+            id="password"
             value={enteredPassword}
             onChange={passwordChangeHandler}
             onBlur={validatePasswordHandler}
           />
         </div>
-        <div className='actions'>
-          <Button type='submit' className='btn' disabled={!formIsValid}>
+        <div className="actions">
+          <Button type="submit" className="btn" disabled={!formIsValid}>
             Login
           </Button>
         </div>

@@ -1,0 +1,7 @@
+.add_task_form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 2rem;
+    margin: 1rem 0;
+}

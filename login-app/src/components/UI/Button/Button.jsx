@@ -1,13 +1,13 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/button-has-type */
-import React from 'react';
+import React from "react";
 
-import './Button.css';
+import "./Button.css";
 
 function Button(props) {
   return (
     <button
-      type={props.type || 'button'}
+      type={props.type || "button"}
       className={`button ${props.className}`}
       onClick={props.onClick}
       disabled={props.disabled}
