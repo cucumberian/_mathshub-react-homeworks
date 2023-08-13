@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from "react";
+import { AiFillCloseCircle } from "react-icons/ai";
 import "./TaskItem.css";
 
 import ItemContext from "../../context/item-context";
 
 function TaskItem({ task }) {
-  console.log("task =", task);
   const contextValue = React.useContext(ItemContext);
 
   const deleteTaskHandler = () => {
@@ -27,9 +27,10 @@ function TaskItem({ task }) {
       >
         {task.task}
       </span>
-      <span className="task_item-delete" onClick={deleteTaskHandler}>
-        X
-      </span>
+      <AiFillCloseCircle
+        className="task_item-delete"
+        onClick={deleteTaskHandler}
+      />
     </div>
   );
 }
