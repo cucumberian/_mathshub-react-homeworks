@@ -20,7 +20,8 @@
 .control label {
   font-weight: bold;
   flex: 1;
-  color: #464646;
+  /* color: #464646; */
+  color: var(--font-color-secondary);
   margin-bottom: 0.5rem;
 }
 

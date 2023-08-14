@@ -8,6 +8,8 @@ import MainHeader from "./components/MainHeader/MainHeader";
 import AuthContext from "./context/auth-context";
 import ThemeContext from "./context/theme-context";
 
+import "./theme.css";
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isDayTheme, setIsDayTheme] = useState(true);
@@ -56,7 +58,13 @@ function App() {
   }, [isDayTheme]);
 
   return (
-    <ThemeContext.Provider value={{ isDayTheme, setThemeHandler }}>
+    <ThemeContext.Provider
+      value={{
+        isDayTheme,
+        setThemeHandler,
+        themeClassName: isDayTheme ? "theme-light" : "theme-dark",
+      }}
+    >
       <AuthContext.Provider
         value={{
           isLoggedIn,
@@ -64,7 +72,7 @@ function App() {
         }}
       >
         <MainHeader />
-        <main>
+        <main className={isDayTheme ? "theme-light" : "theme-dark"}>
           {!isLoggedIn && <Login onLogin={loginHandler} />}
           {isLoggedIn && <Home onLogout={logoutHandler} />}
         </main>

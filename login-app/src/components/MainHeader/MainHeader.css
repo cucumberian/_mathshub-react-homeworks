@@ -7,10 +7,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #114188;
+  background: var(--color-primary);
+  color: var(--color-secondary);
   padding: 0 2rem;
 }
 
 .main-header h1 {
-  color: white;
+  color: var(--font-color-secondary);
 }
