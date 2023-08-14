@@ -1,13 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import Navigation from './Navigation';
-import './MainHeader.css';
+import Navigation from "./Navigation";
+import ThemeToggle from "./ThemeToggle/ThemeToggle";
+import "./MainHeader.css";
 
 function MainHeader() {
   return (
-    <header className='main-header'>
+    <header className="main-header">
       <h1>Типичная страничка</h1>
       <Navigation />
+      <ThemeToggle />
     </header>
   );
 }

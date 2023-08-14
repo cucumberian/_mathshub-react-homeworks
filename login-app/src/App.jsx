@@ -6,15 +6,28 @@ import Login from "./components/Login/Login";
 import Home from "./components/Home/Home";
 import MainHeader from "./components/MainHeader/MainHeader";
 import AuthContext from "./context/auth-context";
+import ThemeContext from "./context/theme-context";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isDayTheme, setIsDayTheme] = useState(true);
 
+  // загрузка данных приложения из локального хранилища
   useEffect(() => {
+    // загрузка статуса логина
     const storageUserStatus = localStorage.getItem("isLoggedIn");
-
     if (storageUserStatus === "true") {
       setIsLoggedIn(true);
+    }
+
+    // загрузка статуса темы
+    const localIsDayTheme = localStorage.getItem("isDayTheme");
+
+    if (localIsDayTheme === null) {
+      setIsDayTheme(true);
+    } else {
+      const parseResult = JSON.parse(localIsDayTheme);
+      setIsDayTheme(parseResult);
     }
   }, []);
 
@@ -32,19 +45,31 @@ function App() {
     });
   };
 
+  // функция вызывается из переключателя тем
+  const setThemeHandler = (isDayThemeStatus) => {
+    setIsDayTheme(isDayThemeStatus);
+  };
+
+  // записываем значение темы в локальное хранилище при измененении темы
+  useEffect(() => {
+    localStorage.setItem("isDayTheme", isDayTheme);
+  }, [isDayTheme]);
+
   return (
-    <AuthContext.Provider
-      value={{
-        isLoggedIn,
-        onLogout: logoutHandler,
-      }}
-    >
-      <MainHeader />
-      <main>
-        {!isLoggedIn && <Login onLogin={loginHandler} />}
-        {isLoggedIn && <Home onLogout={logoutHandler} />}
-      </main>
-    </AuthContext.Provider>
+    <ThemeContext.Provider value={{ isDayTheme, setThemeHandler }}>
+      <AuthContext.Provider
+        value={{
+          isLoggedIn,
+          onLogout: logoutHandler,
+        }}
+      >
+        <MainHeader />
+        <main>
+          {!isLoggedIn && <Login onLogin={loginHandler} />}
+          {isLoggedIn && <Home onLogout={logoutHandler} />}
+        </main>
+      </AuthContext.Provider>
+    </ThemeContext.Provider>
   );
 }
 
