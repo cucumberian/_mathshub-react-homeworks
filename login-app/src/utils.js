@@ -7,8 +7,6 @@ function uid() {
 
 // фильтрация задач по фильтру
 function filterTask(tasksObj, filterValue) {
-  console.log("filterTasks.filterVaue =", filterValue);
-
   if (filterValue === "filter-all") {
     return tasksObj;
   }
