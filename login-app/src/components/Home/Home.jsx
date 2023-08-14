@@ -5,18 +5,21 @@ import Card from "../UI/Card/Card";
 import AddTaskForm from "../AddTaskForm/AddTaskForm";
 import "./Home.css";
 
-import ItemContext from "../../context/item-context";
+import TaskContext from "../../context/task-context";
 
-import uid from "../../utils";
+import { uid, filterTask } from "../../utils";
 
 function Home() {
-  const [tasks, setTasks] = useState(new Map());
+  const [tasks, setTasks] = useState({});
+  const [filteredTasks, setFilteredTasks] = useState({});
+  const [taskFilter, setTaskFilter] = useState("filter-all");
 
   // загрузка задач из localStorage при монтировании компонента
   useEffect(() => {
     const localTasks = JSON.parse(localStorage.getItem("tasks")) || {};
     setTasks(localTasks);
     console.log("init load localTasks =", localTasks);
+    setFilteredTasks(filterTask(localTasks, taskFilter));
   }, []);
 
   const writeToLocalStorage = (tasksDict) => {
@@ -25,9 +28,15 @@ function Home() {
   };
 
   // записываем задачи в localStorage при изменении списка задач
+  // фильтруем согласо фильтру задачи
   useEffect(() => {
     writeToLocalStorage(tasks);
   }, [tasks]);
+
+  // фильтруем задачи при измененении списка задач или фильтра
+  useEffect(() => {
+    setFilteredTasks(filterTask(tasks, taskFilter) || {});
+  }, [tasks, taskFilter]);
 
   const onAddTaskHandler = (taskName) => {
     const task = { id: uid(), task: taskName, isCompleted: false };
@@ -57,20 +66,26 @@ function Home() {
     });
   };
 
+  const taskFilterHandler = (filterName) => {
+    // console.log("taskFilterHandler.filterName =", filterName);
+    setTaskFilter(filterName);
+  };
+
   return (
     <Card className="home">
       <h1>Home</h1>
 
       <AddTaskForm onAddTask={onAddTaskHandler} />
 
-      <ItemContext.Provider
+      <TaskContext.Provider
         value={{
           onDeleteTask: deleteTaskHandler,
           onTaskClick: taskClickHandler,
+          onFilterChange: taskFilterHandler,
         }}
       >
-        <TaskList tasks={tasks} />
-      </ItemContext.Provider>
+        <TaskList tasks={filteredTasks} />
+      </TaskContext.Provider>
     </Card>
   );
 }

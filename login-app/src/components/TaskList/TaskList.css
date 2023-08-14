@@ -2,4 +2,29 @@
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
+
+}
+
+.task_list>select {
+    width: fit-content;
+}
+
+.task_list>select::-webkit-scrollbar {
+    display: none;
+}
+
+.task_list>select::-moz-scrollbar {
+    display: none;
+}
+
+.task_list>select::-o-scrollbar {
+    display: none;
+}
+
+.task_list>select::-google-ms-scrollbar {
+    display: none;
+}
+
+.task_list>select::-khtml-scrollbar {
+    display: none;
 }

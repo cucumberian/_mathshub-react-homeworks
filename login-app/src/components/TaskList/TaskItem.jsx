@@ -4,10 +4,10 @@ import React from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import "./TaskItem.css";
 
-import ItemContext from "../../context/item-context";
+import TaskContext from "../../context/task-context";
 
 function TaskItem({ task }) {
-  const contextValue = React.useContext(ItemContext);
+  const contextValue = React.useContext(TaskContext);
 
   const deleteTaskHandler = () => {
     const taskId = task.id;
