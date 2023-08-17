@@ -2,13 +2,13 @@
 import React, { useContext } from "react";
 
 import "./Card.css";
-import ThemeContext from "../../../context/theme-context";
+import { themeContext } from "../../../context/ThemeContext";
 
 function Card(props) {
-  const themeContext = useContext(ThemeContext);
+  const context = useContext(themeContext);
 
   return (
-    <div className={`card ${props.className} ${themeContext.themeClassName}`}>
+    <div className={`card ${props.className} ${context.themeClassName}`}>
       {props.children}
     </div>
   );

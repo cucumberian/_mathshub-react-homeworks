@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import Navigation from "./Navigation";
 import ThemeToggle from "./ThemeToggle/ThemeToggle";
 
-import ThemeContext from "../../context/theme-context";
+import { themeContext } from "../../context/ThemeContext";
 
 import "./MainHeader.css";
 
 function MainHeader() {
-  const themeContext = useContext(ThemeContext);
+  const tContext = useContext(themeContext);
 
   return (
     <header
@@ -15,7 +15,7 @@ function MainHeader() {
         themeContext.isDayTheme ? "theme-light" : "theme-dark"
       }`}
     >
-      <h1 className={themeContext.isDayTheme ? "theme-light" : "theme-dark"}>
+      <h1 className={tContext.isDayTheme ? "theme-light" : "theme-dark"}>
         Типичная страничка
       </h1>
       <Navigation />

@@ -1,18 +1,18 @@
-import React, { useRef } from "react";
+import React, { useRef, useCallback } from "react";
 import "./AddTaskForm.css";
 import Button from "../UI/Button/Button";
 
 function AddTaskForm({ onAddTask }) {
   const taskRef = useRef();
 
-  const onFormSubmit = (e) => {
+  const onFormSubmit = useCallback((e) => {
     e.preventDefault();
     e.stopPropagation();
     const inputValue = taskRef.current.value;
 
     onAddTask(inputValue);
     taskRef.current.value = "";
-  };
+  }, []);
 
   return (
     <form className="add_task_form" onSubmit={onFormSubmit}>

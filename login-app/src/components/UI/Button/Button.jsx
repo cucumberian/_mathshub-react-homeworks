@@ -5,6 +5,7 @@ import React from "react";
 import "./Button.css";
 
 function Button(props) {
+  console.log("Button");
   return (
     <button
       type={props.type || "button"}
@@ -17,4 +18,4 @@ function Button(props) {
   );
 }
 
-export default Button;
+export default React.memo(Button);

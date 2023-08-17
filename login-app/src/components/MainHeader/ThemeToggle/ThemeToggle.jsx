@@ -1,17 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useCallback } from "react";
 
-import ThemeContext from "../../../context/theme-context";
+import { themeContext } from "../../../context/ThemeContext";
 
 import "./ThemeToggle.css";
 
 function ThemeToggle() {
   // используем внешнее состояние для передачи состояния темы
-  const themeContext = useContext(ThemeContext);
+  const tContext = useContext(themeContext);
 
   // функция при нажатии на элемент переключения темы
-  const toggleThemeHandler = (e) => {
-    themeContext.setThemeHandler(e.target.checked);
-  };
+  const toggleThemeHandler = useCallback((e) => {
+    tContext.setThemeHandler(e.target.checked);
+  }, []);
 
   return (
     <label
@@ -30,4 +30,4 @@ function ThemeToggle() {
   );
 }
 
-export default ThemeToggle;
+export default React.memo(ThemeToggle);

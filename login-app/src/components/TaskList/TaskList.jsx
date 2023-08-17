@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useCallback, useMemo } from "react";
 import TaskItem from "./TaskItem";
 import TaskContext from "../../context/task-context";
 import "./TaskList.css";
@@ -6,17 +6,17 @@ import "./TaskList.css";
 function TaskList({ tasks }) {
   const taskContext = useContext(TaskContext);
 
-  // преобразуем обхект задач в список задач для вывода через map
-  const taskList = Object.values(tasks).reduce(
-    (acc, task) => [...acc, task],
-    []
+  // преобразуем объект задач в список задач для вывода через map
+  const taskList = useMemo(
+    () => Object.values(tasks).reduce((acc, task) => [...acc, task], []),
+    [tasks]
   );
 
   // при измененении селекта отправляем занчение option наверх
-  const filterTaskHandler = (e) => {
+  const filterTaskHandler = useCallback((e) => {
     const filterValue = e.target[e.target.selectedIndex].value;
     taskContext.onFilterChange(filterValue);
-  };
+  }, []);
 
   return (
     <div className="task_list">
@@ -33,4 +33,4 @@ function TaskList({ tasks }) {
   );
 }
 
-export default TaskList;
+export default React.memo(TaskList);
