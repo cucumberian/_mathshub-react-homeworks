@@ -12,7 +12,6 @@ import "./theme.css";
 
 function App() {
   const authContext = useContext(AuthContext);
-  console.log("authContext =", authContext);
 
   return (
     <>

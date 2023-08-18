@@ -21,14 +21,11 @@ function AuthContextProvider({ children }) {
   const loginHandler = useCallback((email, password) => {
     // Тут мы должны проверять логин и пароль
     // Но это всего лишь демо
-    console.log("onLogin");
     localStorage.setItem("isLoggedIn", "true");
     setIsLoggedIn(true);
   }, []);
 
   const logoutHandler = useCallback(() => {
-    console.log("onLogout");
-
     localStorage.removeItem("isLoggedIn");
     setIsLoggedIn(false);
   }, []);
