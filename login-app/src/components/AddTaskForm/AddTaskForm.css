@@ -1,0 +1,19 @@
+.add_task_form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.add_task_form>input {
+    border-radius: 0.3rem;
+    outline: none;
+    border: none;
+
+    font-size: 1.2rem;
+    background-color: var(--color-secondary);
+    color: var(--font-color-secondary);
+    box-shadow: 0px 0px 3px 0px var(--shadow-color);
+    text-align: center;
+}

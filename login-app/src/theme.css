@@ -1,0 +1,21 @@
+.theme-light {
+    --color-primary: #6892c8;
+    --color-secondary: #ffffff;
+    --color-accent: #fd6f53;
+    --font-color: #000000;
+    --font-color-secondary: #3a3a3a;
+    --shadow-color: hsla(0, 0%, 20%, 0.2);
+    --complete-task: rgb(64, 141, 35);
+    --button-background: hsl(290, 100%, 19%);
+}
+
+.theme-dark {
+    --color-primary: #1a304e;
+    --color-secondary: #2a2c2d;
+    --color-accent: #12cdea;
+    --font-color: #ffffff;
+    --font-color-secondary: #cacacafe;
+    --shadow-color: hsla(0, 0%, 100%, 0.5);
+    --complete-task: rgb(154, 206, 135);
+    --button-background: hsl(290, 39%, 48%);
+}

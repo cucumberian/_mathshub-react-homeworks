@@ -1,3 +1,3 @@
-# mathshub-react-homeworks
+# ДЗ 6.
 
-Здесь будут домашние задания для курса React 2023 :)
+## Login + To Do List

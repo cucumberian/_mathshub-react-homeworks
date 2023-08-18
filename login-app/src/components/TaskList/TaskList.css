@@ -1,0 +1,41 @@
+.task_list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+}
+
+.task_list>select {
+    width: fit-content;
+    background-color: var(--color-secondary);
+    color: var(--font-color-secondary);
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    box-shadow: 0px 0px 3px 0px var(--shadow-color);
+
+}
+
+.task_list>select {
+    padding: 0.3rem 1rem;
+}
+
+.task_list>select::-webkit-scrollbar {
+    display: none;
+}
+
+.task_list>select::-moz-scrollbar {
+    display: none;
+}
+
+.task_list>select::-o-scrollbar {
+    display: none;
+}
+
+.task_list>select::-google-ms-scrollbar {
+    display: none;
+}
+
+.task_list>select::-khtml-scrollbar {
+    display: none;
+}
