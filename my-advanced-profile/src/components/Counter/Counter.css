@@ -1,0 +1,12 @@
+.counter {
+    /* border: none; */
+}
+
+.counter__wrong {
+    border: solid 1px red;
+}
+
+.counter__wrong::after {
+    content: "Количество монстров не может быть меньше 0!";
+    margin-left: 2rem;
+}
