@@ -1,23 +1,38 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prefer-stateless-function */
 import React from "react";
 import "./Counter.css";
 
-function Counter({ counterValue, clickMinus, clickPlus }) {
-  console.log("counterValue = ", counterValue);
-  return (
-    <>
-      <p className={counterValue <= 0 ? "counter counter__wrong" : "counter"}>
-        Побеждено сегодня монстров: {counterValue}
-      </p>
-      <div>
-        <button data-role="decrease" type="submit" onClick={clickMinus}>
-          Уменьшить
-        </button>
-        <button data-role="increase" type="submit" onClick={clickPlus}>
-          Увеличить
-        </button>
-      </div>
-    </>
-  );
+class Counter extends React.Component {
+  render() {
+    return (
+      <>
+        <p
+          className={
+            this.props.counterValue <= 0 ? "counter counter__wrong" : "counter"
+          }
+        >
+          Побеждено сегодня монстров: {this.props.counterValue}
+        </p>
+        <div>
+          <button
+            data-role="decrease"
+            type="submit"
+            onClick={this.props.clickMinus}
+          >
+            Уменьшить
+          </button>
+          <button
+            data-role="increase"
+            type="submit"
+            onClick={this.props.clickPlus}
+          >
+            Увеличить
+          </button>
+        </div>
+      </>
+    );
+  }
 }
 
 export default Counter;

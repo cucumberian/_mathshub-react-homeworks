@@ -1,53 +1,58 @@
-import React, { useState, useRef } from "react";
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/destructuring-assignment */
+import React from "react";
 import ProfilePicture from "./ProfilePicture/ProfilePicture";
 import ProfileName from "./ProfileName/ProfileName";
 import ProfileBio from "./ProfileBio/ProfileBio";
 import ProfileHobbies from "./ProfileHobbies/ProfileHobbies";
 import ProfileCitation from "./ProfileCitation/ProfileCitation";
 import Counter from "./Counter/Counter";
+
+import { UserDataContext } from "../context/userData-context";
+
 import "./Profile.css";
 
-function Profile({ userData }) {
-  const [monsterCounter, setMonsterCounter] = useState(
-    userData.todayMonsterCount
-  );
-
-  function clickMinus() {
-    setMonsterCounter(monsterCounter - 1);
+class Profile extends React.Component {
+  constructor() {
+    super();
+    this.state = {};
   }
 
-  function clickPlus() {
-    setMonsterCounter(monsterCounter + 1);
+  componentDidMount() {
+    console.log("Profile, context =", this.context);
+    this.setState({ monsterCounter: this.context.userData.todayMonsterCount });
   }
 
-  const ProfileElement = useRef(null);
+  clickMinus() {
+    this.setState((prevState) => ({
+      monsterCounter: prevState.monsterCounter - 1,
+    }));
+  }
 
-  const Divv = (
-    <div ref={ProfileElement} className="divClass1 divClass2">
-      text sample
-    </div>
-  );
-  console.log(`divv = `, Divv);
-  console.log("ProfileElement = ", ProfileElement);
+  clickPlus() {
+    this.setState((prevState) => ({
+      monsterCounter: prevState.monsterCounter + 1,
+    }));
+  }
 
-  return (
-    <div className="profile">
-      <ProfilePicture url={userData.avatar_url} />
-      <ProfileName name={userData.name} />
-      <ProfileBio text={userData.bio} />
-      <ProfileHobbies hobbiesList={userData.hobbies} />
-      <ProfileCitation
-        text={userData.citation.text}
-        author={userData.citation.author}
-      />
-      <Counter
-        counterValue={monsterCounter}
-        clickMinus={clickMinus}
-        clickPlus={clickPlus}
-      />
-      {Divv}
-    </div>
-  );
+  render() {
+    return (
+      <div className="profile">
+        <ProfilePicture />
+        <ProfileName />
+        <ProfileBio />
+        <ProfileHobbies />
+        <ProfileCitation />
+        <Counter
+          counterValue={this.state.monsterCounter}
+          clickMinus={this.clickMinus.bind(this)}
+          clickPlus={this.clickPlus.bind(this)}
+        />
+      </div>
+    );
+  }
 }
+
+Profile.contextType = UserDataContext;
 
 export default Profile;
