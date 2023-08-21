@@ -1,37 +1,51 @@
-import React, { useState } from "react";
+import React from "react";
 import SongPostForm from "./SongPostForm/SongPostForm";
 import SongListSmart from "./SongListSmart/SongListSmart";
 import "./Radio.css";
 
-function Radio({ initSongs, availableGenres }) {
-  const [songList, setSongList] = useState(initSongs);
-  const [lastId, setLastId] = useState(initSongs.at(-1).id + 1);
+class Radio extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      songList: [],
+      lastId: 0,
+    };
+  }
 
-  const postSongHandler = (songData) => {
-    setLastId((prevValue) => prevValue + 1);
-    setSongList((prevSongList) => {
-      return [{ ...songData, id: lastId }, ...prevSongList];
+  componentDidMount() {
+    this.setState({
+      songList: this.props.initSongs,
+      lastId: this.props.initSongs.at(-1).id + 1,
     });
-  };
+  }
 
-  const deleteSongByIdHandler = (songId) => {
-    setSongList((prevSongList) =>
-      prevSongList.filter((song) => song.id !== songId)
+  postSongHandler(songData) {
+    this.setState((prevState) => ({
+      lastId: prevState.lastId + 1,
+      songList: [{ ...songData, id: this.state.lastId }, ...prevState.songList],
+    }));
+  }
+
+  deleteSongByIdHandler(songId) {
+    this.setState((prevState) => ({
+      songList: prevState.songList.filter((song) => song.id !== songId),
+    }));
+  }
+
+  render() {
+    return (
+      <div className="radio-container">
+        <SongPostForm
+          availableGenres={this.props.availableGenres}
+          postSong={this.postSongHandler.bind(this)}
+        />
+        <SongListSmart
+          songList={this.state.songList}
+          deleteSongById={this.deleteSongByIdHandler.bind(this)}
+        />
+      </div>
     );
-  };
-
-  return (
-    <div className="radio-container">
-      <SongPostForm
-        availableGenres={availableGenres}
-        postSong={postSongHandler}
-      />
-      <SongListSmart
-        songList={songList}
-        deleteSongById={deleteSongByIdHandler}
-      />
-    </div>
-  );
+  }
 }
 
 export default Radio;

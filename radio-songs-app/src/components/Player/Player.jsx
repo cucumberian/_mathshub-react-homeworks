@@ -1,27 +1,46 @@
-import React, { useState } from "react";
+import React from "react";
 import AudioPlayer from "../AudioPlayer/AudioPlayer";
 import FilesList from "../FilesList/FilesList";
 import FilesPostForm from "../FilesPostForm/FilesPostForm";
 
-function Player({ initFiles }) {
-  const [fileList, setFileList] = useState(initFiles);
-  const [playedFile, setPlayedFile] = useState({});
+class Player extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      fileList: [],
+      playedFile: {},
+    };
+  }
 
-  const addFileHandler = (file) => {
-    setFileList((prevList) => [file, ...prevList]);
-  };
+  componentDidMount() {
+    this.setState({
+      fileList: this.props.initFiles,
+      playedFile: {},
+    });
+  }
 
-  const setPlayingHandler = (fileData) => {
-    setPlayedFile(fileList.at(fileData.index));
-  };
+  addFileHandler(file) {
+    this.setState((prevState) => ({
+      fileList: [file, ...prevState.fileList],
+    }));
+  }
 
-  return (
-    <div className="radio-container">
-      <FilesPostForm addFile={addFileHandler} />
-      <FilesList files={fileList} setPlaying={setPlayingHandler} />
-      <AudioPlayer fileData={playedFile} />
-    </div>
-  );
+  setPlayingHandler(fileData) {
+    this.setState({ playedFile: this.state.fileList.at(fileData.index) });
+  }
+
+  render() {
+    return (
+      <div className="radio-container">
+        <FilesPostForm addFile={this.addFileHandler.bind(this)} />
+        <FilesList
+          files={this.state.fileList}
+          setPlaying={this.setPlayingHandler.bind(this)}
+        />
+        <AudioPlayer fileData={this.state.playedFile} />
+      </div>
+    );
+  }
 }
 
 export default Player;
