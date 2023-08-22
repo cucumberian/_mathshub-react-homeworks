@@ -1,0 +1,8 @@
+* {
+    --background-main: #242424;
+    --background-primary: hsl(86.7, 21.3%, 58.6%);
+    --background-primary-dark: hsl(75.9, 40.5%, 47.5%);
+    --font-color: hsl(0, 0%, 30%);
+    --font-color-secondary: hsl(0, 0%, 100%);
+    --red-color: hsl(0, 77%, 53%);
+}
