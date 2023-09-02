@@ -7,15 +7,26 @@ const uid = () =>
     ""
   );
 
-const postReducer = (state = initialState, { action, post }) => {
-  if (action === "add") {
+const postReducer = (state = initialState, action) => {
+  // console.log("postReducer");
+  // console.log("state =", state);
+  console.log("posts =", state.posts);
+  // console.log("payload =", action.payload);
+
+  if (action.type === "add") {
     const id = uid();
-    const postData = { ...post, id };
-    return { ...state, postData };
+    const post = { ...action.payload, id };
+    const stateCopy = structuredClone(state);
+    stateCopy.posts[id] = post;
+    return stateCopy;
   }
   return state;
 };
 
 const store = createStore(postReducer);
 
+const postActions = store.action;
+
 export default store;
+
+export { postActions };

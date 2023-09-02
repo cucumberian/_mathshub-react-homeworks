@@ -1,0 +1,22 @@
+.sendedPost {
+    border: 1px solid lightgray;
+    border-radius: 0.4rem;
+    gap: 1rem;
+
+}
+
+.sendedPost p {
+    margin: 0.1rem auto;
+}
+
+.post_route {
+
+    margin: 0.4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.post_route fieldset {
+    border-radius: 0.6rem;
+}
