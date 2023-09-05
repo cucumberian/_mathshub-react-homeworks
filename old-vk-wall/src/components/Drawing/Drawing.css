@@ -1,0 +1,28 @@
+.drawing {
+    position: relative;
+}
+
+.drawing .title {
+    font-size: 0.6rem;
+}
+
+
+.drawing p {
+    font-size: 0.5rem;
+
+}
+
+.drawing>.delete-button {
+    opacity: 0.5;
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    transition-duration: 0.3s;
+    color: red;
+}
+
+.drawing>.delete-button:hover {
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(1.3);
+}

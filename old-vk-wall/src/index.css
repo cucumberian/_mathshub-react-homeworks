@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+header {
+  width: 100%;
+}
+
+main {
+  width: 100%;
+}
+
+footer {
+  width: 100%;
+}
