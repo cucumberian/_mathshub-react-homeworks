@@ -1,11 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import VkLogo from "./VkLogo/VkLogo";
+import User from "../User/User";
 
 import "./Header.css";
 
 function Header() {
   return ReactDOM.createPortal(
-    <p>Header</p>,
+    <header>
+      <VkLogo />
+      <User />
+    </header>,
     document.getElementById("header")
   );
 }

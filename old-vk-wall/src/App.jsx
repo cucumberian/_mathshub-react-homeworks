@@ -19,6 +19,7 @@ function App() {
         <DrawContextProvider>
           <div className="app">
             <Header />
+            {/* <SideBar /> */}
             <DrawBoard />
             <Drawings />
             <Footer />
