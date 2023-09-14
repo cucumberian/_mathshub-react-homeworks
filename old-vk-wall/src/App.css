@@ -10,3 +10,8 @@
   height: 100%;
 
 }
+
+.main_page {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}

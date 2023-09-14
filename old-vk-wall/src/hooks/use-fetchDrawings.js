@@ -9,10 +9,8 @@ const useFetchDrawings = () => {
     setError(false);
 
     try {
-      // console.log("url =", url);
       const response = await fetch(url);
 
-      // console.log("response =", response);
       if (!response.ok) {
         throw new Error(`Не удалось получить данные от ${url}`);
       }
