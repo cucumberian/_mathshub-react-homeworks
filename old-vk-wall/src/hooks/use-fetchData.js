@@ -19,7 +19,7 @@ const useFetchData = () => {
     }
   };
 
-  return [error, isLoading, fetchData];
+  return { error, isLoading, fetchData };
 };
 
 export default useFetchData;

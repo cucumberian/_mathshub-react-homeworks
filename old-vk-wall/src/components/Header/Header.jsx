@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import VkLogo from "./VkLogo/VkLogo";
+import VkLogo from "../../ui/VkLogo/VkLogo";
 import User from "../User/User";
 
 import "./Header.css";

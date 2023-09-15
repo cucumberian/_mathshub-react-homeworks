@@ -1,3 +1,17 @@
+.footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.footer_nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
 .pavel_durov {
     font-size: 0.8rem;
 }

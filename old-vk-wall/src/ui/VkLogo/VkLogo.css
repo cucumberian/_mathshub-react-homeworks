@@ -1,0 +1,23 @@
+header .VKLogo {
+    font-weight: bold;
+    font-size: 2.0rem;
+    margin-left: 1.5rem;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+
+}
+
+.VKLogo-firstletter {
+    padding: 0 0.6rem;
+    margin: 0 0.3rem;
+    border-radius: 0.4rem;
+    background-color: white;
+    color: #46657f;
+    box-shadow: 1px 2px hsla(0, 0%, 0%, 0.2);
+}
+
+.VKLogo-letters {
+    text-shadow: 1px 2px hsla(0, 0%, 0%, 0.2);
+}

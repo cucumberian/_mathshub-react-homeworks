@@ -1,7 +1,34 @@
 header {
-    height: 2rem;
-    width: 100%;
+    height: 64px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    color: white;
+    background: linear-gradient(#1C3C59, #6887a0);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom: 1px solid white;
+
+}
+
+header a {
+    color: white;
+}
+
+
+header .header-username {
+    margin: 1rem;
+    font-weight: bold;
+}
+
+
+header .header-user_avatar {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    border-radius: 50%;
+    background-color: white;
+    margin: 5px;
+
 }

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 
 import DrawContext from "../../context/draw-context";
 import UserContext from "../../context/user-context";
@@ -7,51 +7,76 @@ import { uid } from "../../utils";
 
 import useFetchData from "../../hooks/use-fetchData";
 
+import { useDispatch } from "react-redux";
+import { messagesSliceActions } from "../../store/messages-slice";
+
 import "./DrawBoard.css";
 
 function DrawBoard() {
   const drawContext = useContext(DrawContext);
   const userContext = useContext(UserContext);
 
-  const [error, isLoading, fetchData] = useFetchData({
+  const [textAreaText, setTextAreaText] = useState("");
+
+  const { error, isLoading, fetchData } = useFetchData({
     url: drawContext.apiUrl,
   });
 
-  const addDrawHandler = () => {
-    const url = drawContext.apiUrl + "/drawings/";
-    const title = Math.random().toString();
-    const data = uid();
-    const userHash = userContext.user.hash;
-    console.log("addDraw.userHash =", userHash);
+  const dispatch = useDispatch();
 
-    // Функция для обработки ответа от сервера
-    const processPostResponse = (data) => {
-      if (data.status) {
-        console.log("рисунок успешно добавлен в бд");
-        const drawing = data.drawing;
-        drawContext.setDrawings((prevValues) => {
-          const drawingsCopy = structuredClone(prevValues);
-          drawingsCopy[drawing.id] = drawing;
-          return drawingsCopy;
-        });
-      }
+  const textAreaChangeHandler = (e) => {
+    setTextAreaText(e.target.value);
+  };
+
+  // отправка сообщения в апи
+  const addMessageHandler = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (textAreaText.length === 0) {
+      return;
+    }
+
+    const message = {
+      text: textAreaText,
+      date: new Date(),
+      username: `${userContext.user.firstname} ${userContext.user.lastname}`,
+      avatarUrl: userContext.user.avatarUrl,
     };
 
-    // Отправляем данные рисунка вместе с хэшем пользовтеля
-    const sendedData = { title, data, hash: userHash };
-    console.log("addDrawHandler.sendedData =", sendedData);
-    const options = {
+    const fetchUrl = drawContext.apiUrl + "/messages/";
+    const fetchOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(sendedData),
+      body: JSON.stringify(message),
     };
-    fetchData({ url, options, func: processPostResponse });
+    const response = await fetch(fetchUrl, fetchOptions);
+    const json = await response.json();
+
+    console.log("addMessageHandler. response json =", json);
+    if (json.status) {
+      dispatch(messagesSliceActions.addMessage({ message: json.message }));
+    }
   };
 
   return (
     <section className="draw-board">
-      <p>Drawboard</p>
-      <button onClick={addDrawHandler}>Отправить</button>
+      <form action="" onSubmit={addMessageHandler}>
+        <div className="send_message_div">
+          <textarea
+            onChange={textAreaChangeHandler}
+            placeholder="Введите Ваше сообщение..."
+          ></textarea>
+        </div>
+        <div className="send_message-buttons_panel">
+          <button type="submit">Отправить</button>
+          <div>
+            <span>смайлик</span>
+          </div>
+          <button type="button">Прикрепить</button>
+        </div>
+      </form>
+
       {isLoading && <p>Отправка дынных</p>}
       {error && <p>Ошибка при отправке дынных</p>}
     </section>

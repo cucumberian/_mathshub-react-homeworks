@@ -1,12 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 import "./Footer.css";
 
 function Footer() {
-  return ReactDOM.createPortal(
-    <div>
-      <div>
+  return (
+    <div className="footer">
+      <div className="footer_nav">
         <a href="">о сайте</a>
         <a href="">техподдержка</a>
         <a href="">блог</a>
@@ -15,8 +14,7 @@ function Footer() {
       </div>
       <p>В Контакте &copy; 2006-2008</p>
       <p className="pavel_durov">Непавел Недуров</p>
-    </div>,
-    document.getElementById("footer")
+    </div>
   );
 }
 
