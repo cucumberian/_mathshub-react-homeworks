@@ -10,6 +10,7 @@ import { messagesSliceActions } from "../../store/messages-slice";
 import useFetchData from "../../hooks/use-fetchData";
 import DrawContext from "../../context/draw-context";
 import MessagesContainer from "../MessagesContainer/MessagesContainer";
+import Divider from "../../ui/Divider/Divider";
 
 function Messages() {
   const dispatch = useDispatch();

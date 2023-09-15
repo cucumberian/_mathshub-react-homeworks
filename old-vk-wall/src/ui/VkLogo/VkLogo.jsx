@@ -6,7 +6,7 @@ function VkLogo() {
   return (
     <p className="VKLogo">
       <span className="VKLogo-firstletter">В</span>
-      <span className="VKLogo-letters">контакте</span>
+      <span className="VKLogo-letters">дурке</span>
     </p>
   );
 }

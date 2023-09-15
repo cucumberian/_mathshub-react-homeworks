@@ -6,7 +6,8 @@ import { useSelector } from "react-redux";
 import UserContext from "../../context/user-context";
 import useFetchData from "../../hooks/use-fetchData";
 
-import { BiSolidTrashAlt } from "react-icons/bi";
+import { FaHeart } from "react-icons/fa";
+
 import "./Message.css";
 import { messagesSliceActions } from "../../store/messages-slice";
 import UserAvatar from "../../ui/UserAvatar";
@@ -44,12 +45,6 @@ function Message({ message }) {
 
   return (
     <div className="user_message">
-      {userContext.user.id === message.user_id && (
-        <BiSolidTrashAlt
-          className="massage_trash"
-          onClick={deleteMessageHandler}
-        />
-      )}
       <UserAvatar
         className="user_avatar"
         src={message.avatarUrl}
@@ -57,10 +52,10 @@ function Message({ message }) {
         alt="аватар пользователя"
       />
       <div>
-        <a href="">
+        <a href="" className="message-user_name">
           {message.user_firstname} {message.user_lastname}
         </a>
-        <p>{message.text}</p>
+        <p className="message_text">{message.text}</p>
         <div className="message_actions">
           <div>
             <span className="message_date">
@@ -71,9 +66,18 @@ function Message({ message }) {
                 minute: "2-digit",
               })}`}
             </span>
-            |<a href="">Комментировать</a>|<a href="">Тет-а-тет</a>
+            |<a href="">Комментировать</a>|
+            {userContext.user.id === message.user_id ? (
+              <a href="" onClick={deleteMessageHandler}>
+                Удалить сообщение
+              </a>
+            ) : (
+              <a href="">Тет-а-тет</a>
+            )}
           </div>
-          <a href="">Мне нравится</a>
+          <a href="">
+            Мне нравится <FaHeart className="message-like_icon" />
+          </a>
         </div>
       </div>
     </div>

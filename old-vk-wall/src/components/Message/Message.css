@@ -1,7 +1,7 @@
 .user_message {
+    margin: 0.7rem 0;
     display: flex;
     flex-direction: row;
-    font-size: 0.8rem;
     width: 100%;
     position: relative;
 }
@@ -10,26 +10,15 @@
     width: 100%;
 }
 
-.user_message>.massage_trash {
-    opacity: 0.5;
-    display: inline-block;
-    position: absolute;
-    right: 10px;
-    transition-duration: 0.3s;
-    color: gray;
+.user_message .message-user_name {
+    font-weight: bold;
 }
 
-.user_message>.massage_trash:hover {
+.user .user_message>.massage_trash:hover {
     opacity: 1;
     color: red;
     cursor: pointer;
     transform: scale(1.3);
-}
-
-.user_message a {
-    color: blue;
-    text-decoration: none;
-
 }
 
 .user_message .message_actions {
@@ -39,10 +28,18 @@
     width: 100%;
 }
 
+.user_message .message_text {
+    margin: 0.3rem 0;
+}
+
 .user_message .message_date {
     color: gray;
 }
 
 .user_message .user_avatar {
     max-width: 60px;
+}
+
+.user_message .message-like_icon {
+    color: var(--color-secondary);
 }

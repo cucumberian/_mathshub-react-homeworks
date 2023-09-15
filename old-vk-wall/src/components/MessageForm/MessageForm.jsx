@@ -8,6 +8,8 @@ import { messagesSliceActions } from "../../store/messages-slice";
 import useFetchData from "../../hooks/use-fetchData";
 import UserContext from "../../context/user-context";
 import "./MessageForm.css";
+import VKButton from "../../ui/VKButton/VKButton";
+import VKButtonTransparent from "../../ui/VKButton/VKButtonTransparent";
 
 function MessageForm() {
   const [textAreaText, setTextAreaText] = useState("");
@@ -64,13 +66,10 @@ function MessageForm() {
           />
         </div>
         <div className="send_message-buttons_panel">
-          <div>
-            <button type="submit">Отправить</button>
-            <span>смайлик</span>
-          </div>
-          <div>
-            <button type="button">Прикрепить</button>
-          </div>
+          {/* <button type="submit">Отправить</button> */}
+          <VKButton type="submit">Отправить в палату</VKButton>
+
+          <VKButtonTransparent type="button">Прикрепить</VKButtonTransparent>
         </div>
       </form>
 

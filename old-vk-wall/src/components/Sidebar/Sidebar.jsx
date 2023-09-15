@@ -39,10 +39,11 @@ function Sidebar() {
           className="refresh_avatar"
           type="button"
           onClick={getRandomAvatarHandler}
+          title="поменять на случайный аватар"
         />
       </div>
 
-      <p className="username">
+      <p className="username" title="Это ваше имя">
         {userContext.user.firstname} {userContext.user.lastname}
       </p>
     </div>

@@ -6,14 +6,16 @@ function Footer() {
   return (
     <div className="footer">
       <div className="footer_nav">
-        <a href="">о сайте</a>
-        <a href="">техподдержка</a>
-        <a href="">блог</a>
+        <a href="">о дурке</a>
+        <a href="">вызов санитаров</a>
+        <a href="">стенгазета</a>
         <a href="">правила</a>
-        <a href="">помощь</a>
+        <a href="">скорая помощь</a>
       </div>
-      <p>В Контакте &copy; 2006-2008</p>
-      <p className="pavel_durov">Непавел Недуров</p>
+      <p>В Дурке &copy; 2023</p>
+      <a href="" className="vasily_durkin">
+        Василий Дуркин
+      </a>
     </div>
   );
 }

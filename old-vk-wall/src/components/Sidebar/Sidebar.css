@@ -1,8 +1,7 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    background-color: lightgray;
+    gap: 0.1rem;
     border-radius: 0.7rem;
     position: relative;
     align-items: center;
@@ -11,8 +10,8 @@
 .sidebar .user_avatar {
     width: 7rem;
     height: 7rem;
-    ;
-    border-radius: 50%;
+    margin: 1rem 0 0 0;
+    overflow: hidden;
 }
 
 .sidebar .username {
@@ -28,10 +27,15 @@
     background-color: white;
     border-radius: 50%;
     transition-duration: 0.3s;
+    box-shadow: 0px 0px 4px 0px hsla(0, 0%, 0%, 0.5);
 }
 
 .sidebar .refresh_avatar:hover {
     opacity: 1;
     cursor: pointer;
     transform: scale(1.2);
+}
+
+.vkcolors {
+    --color-primary:
 }

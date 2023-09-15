@@ -5,30 +5,26 @@ header {
     justify-content: space-between;
     align-items: center;
     color: white;
-    background: linear-gradient(#1C3C59, #6887a0);
+    background: linear-gradient(var(--color-primary), var(--color-secondary));
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border-bottom: 1px solid white;
-
 }
 
 header a {
-    color: white;
+    color: hsla(0, 0%, 100%, 0.9);
 }
-
 
 header .header-username {
     margin: 1rem;
     font-weight: bold;
 }
 
-
 header .header-user_avatar {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     object-fit: contain;
     border-radius: 50%;
     background-color: white;
     margin: 5px;
-
 }

@@ -1,16 +1,24 @@
 .message-form {
     padding: 0.2rem;
-    border: 1px solid lightgreen;
     margin-bottom: 1rem;
+    background-color: var(--color-third);
 }
 
 .message-form form textarea {
     width: 100%;
     resize: none;
+    border: none;
+    outline: none;
+    font-size: 0.7rem;
+    padding: 0.2rem;
+}
+
+.message-form form textarea::placeholder {
+    color: hsla(0, 0%, 0%, 0.3);
 }
 
 .send_message-buttons_panel {
-    width: 100%;
+    margin: 0.5rem 0.4rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

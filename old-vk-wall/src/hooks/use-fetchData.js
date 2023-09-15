@@ -7,7 +7,6 @@ const useFetchData = () => {
   const fetchData = async ({ url, options = {}, func = () => {} }) => {
     setError(null);
     try {
-      console.log("fetch.options =", options);
       setIsLoading(true);
       const response = await fetch(url, options);
       const json = await response.json();
