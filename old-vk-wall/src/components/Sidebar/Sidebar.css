@@ -1,0 +1,41 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    border-radius: 0.7rem;
+    position: relative;
+    align-items: center;
+}
+
+.sidebar .user_avatar {
+    width: 7rem;
+    height: 7rem;
+    margin: 1rem 0 0 0;
+    overflow: hidden;
+}
+
+.sidebar .username {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sidebar .refresh_avatar {
+    opacity: 0.5;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: white;
+    border-radius: 50%;
+    transition-duration: 0.3s;
+    box-shadow: 0px 0px 4px 0px hsla(0, 0%, 0%, 0.5);
+}
+
+.sidebar .refresh_avatar:hover {
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.vkcolors {
+    --color-primary:
+}

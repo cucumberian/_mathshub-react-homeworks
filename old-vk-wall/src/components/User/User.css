@@ -1,0 +1,11 @@
+.header_user {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header_user img {
+    height: 100%;
+}

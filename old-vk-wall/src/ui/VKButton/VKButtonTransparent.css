@@ -1,0 +1,9 @@
+.vkbutton_transparent {
+    color: var(--color-secondary);
+    background: none;
+    border-radius: 0.2rem;
+    padding: 0 0.8rem;
+    border: none;
+
+
+}

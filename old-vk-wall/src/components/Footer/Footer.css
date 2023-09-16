@@ -1,0 +1,22 @@
+.footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer a {
+    color: var(--color-links);
+}
+
+.footer_nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 0.5rem 0;
+}
+
+.vasily_durkin {
+    margin: 0.2rem 0;
+    font-size: 0.6rem;
+}

@@ -1,0 +1,30 @@
+header {
+    height: 64px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background: linear-gradient(var(--color-primary), var(--color-secondary));
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom: 1px solid white;
+}
+
+header a {
+    color: hsla(0, 0%, 100%, 0.9);
+}
+
+header .header-username {
+    margin: 1rem;
+    font-weight: bold;
+}
+
+header .header-user_avatar {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    border-radius: 50%;
+    background-color: white;
+    margin: 5px;
+}

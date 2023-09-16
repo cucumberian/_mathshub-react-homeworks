@@ -1,0 +1,34 @@
+.drawings {
+    padding: 0.2rem;
+    border: 1px solid lightgreen;
+}
+
+.drawings-grid {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.2rem;
+    border: 1px solid lightcoral;
+}
+
+.drawings-grid>div {
+    border: 1px solid lightblue;
+    padding: 0.3rem;
+    width: 6rem;
+    height: 6rem;
+}
+
+.drawings_refresh {
+    width: 2rem;
+    height: 2rem;
+    transition-duration: 0.3s;
+}
+
+.drawings_refresh:hover {
+    cursor: pointer;
+    color: lightblue;
+}

@@ -1,0 +1,16 @@
+.draw-board {
+    padding: 0.2rem;
+    border: 1px solid lightgreen;
+    margin-bottom: 1rem;
+}
+
+.draw-board form textarea {
+    width: 100%;
+    min-height: 3rem;
+}
+
+.send_message-buttons_panel {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
