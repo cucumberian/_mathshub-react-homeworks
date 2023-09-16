@@ -15,3 +15,4 @@ function VKButtonTransparent(props) {
 }
 
 export default VKButtonTransparent;
+ 
