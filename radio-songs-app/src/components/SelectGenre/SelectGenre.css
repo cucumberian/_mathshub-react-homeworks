@@ -1,0 +1,7 @@
+.select-genre {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex-grow: 1;
+    /* Make the input fields take up the available space */
+}
